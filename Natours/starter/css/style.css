@@ -6,3 +6,85 @@ Medium green: #55c57a
 Dark green: #28b485
 
 */
+ 
+
+/* * = universal selector */
+/* basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+    /* doesn't add border and boxing isn;t added to total width and height */
+}
+/* vs code extension for coloring: colorize */
+/* https://marketplace.visualstudio.com/items?itemName=kamikillerto.vscode-colorize */
+
+body {
+    /* include all font info in body */
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #777;
+    padding: 30px;
+}
+
+.header {
+    height: 95vh;
+    /* 95% of viewport height */
+    background-image: linear-gradient(
+        to right bottom, 
+        rgba(126, 213, 111, 0.8), 
+        rgba(40, 180, 133, 0.8)) , 
+        url(../img/hero.jpg);
+    background-size: cover;
+    /* ^^fit element to viewport width size */
+    background-position: top;
+    position: relative;
+    clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
+     /* clip-path: polygon(0 0, 100% 50%, 100% 50%, 0 100%); */
+    /* clip-path: polygon(50% 0, 100% 100%, 0 100%); */
+    /* axis x=x , y = epsilon */
+}
+
+.logo-box {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+
+}
+
+.logo {
+    height: 35px;
+}
+
+.text-box {
+    position: absolute;
+    /* below is in relation to parent element */
+    top: 40%;
+    left: 50%;
+    /* below is in relation to element itself */
+    transform: translate(-50%, -50%);
+}
+
+.heading-primary {
+    color: #ffffff;
+    text-transform: uppercase;
+
+}
+/* block level elements use entire width they have available */
+/* they also create line breaks before and after themselves */
+/* changes inline span element to block */
+.heading-primary-main {
+    display: block;
+    font-size: 60px;
+    font-weight: 400;
+    letter-spacing: 35px;
+}
+
+.heading-primary-sub {
+    display: block;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 17.4px;
+}
