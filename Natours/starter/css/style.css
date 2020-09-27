@@ -58,6 +58,11 @@ body {
     height: 35px;
 }
 
+/* .logo:hover {
+    doesn't work:
+    animation: moveInRight 1s ease-out;
+} */
+
 .text-box {
     position: absolute;
     /* below is in relation to parent element */
@@ -70,7 +75,8 @@ body {
 .heading-primary {
     color: #ffffff;
     text-transform: uppercase;
-
+    /* below fixes shakeyness of the moving transform header */
+    backface-visibility: hidden;
 }
 /* block level elements use entire width they have available */
 /* they also create line breaks before and after themselves */
@@ -80,6 +86,14 @@ body {
     font-size: 60px;
     font-weight: 400;
     letter-spacing: 35px;
+    /* only properties for animation to work: */
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+
+    /* animation-delay: 3s; */
+    /* animation-iteration-count: 3; */
+    animation-timing-function: ease-out;
+
 }
 
 .heading-primary-sub {
@@ -87,4 +101,61 @@ body {
     font-size: 20px;
     font-weight: 700;
     letter-spacing: 17.4px;
+    
+    /* animation-name: moveInRight;
+    animation-duration: 1s;
+    animation-timing-function: ease-out; */
+    animation: moveInRight 1s ease-out;
+}
+
+@keyframes moveInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px);
+        /* negative value goes to the left */
+    }
+
+    80% {
+        transform: translateX(10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+    /* 0% { */
+        /* opacity: 0; */
+        /* transform: translateX(-100px) rotate(-50deg); */
+        /* negative value goes to the left */
+    /* } */
+
+    /* 60% { */
+        /* transform: rotate(180deg); */
+    /* } */
+
+    /* 80% { */
+        /* transform: translateX(10px)rotate(180deg); */
+    /* } */
+
+    /* 100% { */
+        /* opacity: 1; */
+        /* transform: translate(0) rotate(180deg); */
+    /* } */
+}
+
+@keyframes moveInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(100px);
+        /* negative value goes to the left */
+    }
+
+    80% {
+        transform: translateX(-10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
 }
